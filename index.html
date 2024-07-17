@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaniv George Perez - Portfolio</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta name="robots" content="noindex, nofollow">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Yaniv George Perez</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#public-projects">Public Projects</a></li>
+                    <li><a href="#private-projects">Private Projects</a></li>
+                    <li style="display: none;"><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="fade-in">
+        <div class="container">
+            <div class="content-left">
+                <h2>Welcome</h2>
+                <p>I am a 18-year-old software developer with a passion for creating efficient, high-quality code. With over 5 years of experience in full-stack development, I excel in building robust applications and maintaining clean, readable code.</p>
+                <p>Email: <a href="mailto:ypnihul@gmail.com">ypnihul@gmail.com</a></p>
+            </div>
+      
+        </div>
+    </section>
+
+    <section id="resume" class="fade-in">
+        <div class="container">
+            <div class="content-left">
+                <h2>Resume</h2>
+                <div class="resume-section">
+                    <h3>Experience</h3>
+                    <p><strong>Software Developer at namedc.org</strong> | 2023</p>
+                    <ul>
+                        <li>Developed and maintained web applications using HTML, CSS, and JavaScript.</li>
+                        <li>Managed a back-end server on a Linux VPS, utilizing TypeScript, MongoDB, and Bun.</li>
+                        <li>Conducted thorough code reviews and resolved technical issues to ensure optimal performance.</li>
+                        <li>Implemented automated testing processes to enhance software quality and reliability.</li>
+                        <li>Followed best practices for coding efficiency and maintained clean, modular code.</li>
+                    </ul>
+                </div>
+                <div class="resume-section">
+                    <h3>Education</h3>
+                    <p><strong>High School Diploma</strong> | .בית חינוך ירקון Drom Hasharon | 2018 - 2024</p>
+                </div>
+                <div class="resume-section">
+                    <h3>Skills</h3>
+                    <ul>
+                        <li>Proficient in Node.js, TypeScript, and JavaScript</li>
+                        <li>Experienced with MongoDB, Linux, and VPS servers</li>
+                        <li>Skilled in Git/GitHub, C#, Python, HTML, and CSS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="public-projects" class="fade-in">
+        <div class="container">
+            <div class="content-left">
+                <h2>Public Projects</h2>
+                <div class="project">
+                    <h3>namedc.org</h3>
+                    <p>namedc.org was a platform designed to provide comprehensive Discord user history lookup. It utilized an advanced algorithm to scrape user information and compile a detailed history, including usernames, display names, bios, avatars, and banner history. The project was operational until its discontinuation in 2023.</p>
+                    <a href="https://github.com/namedc-org" target="_blank" class="github-button">View on GitHub</a>
+                    <div class="project-images">
+                        <img src="images/web.png" alt="namedc.org screenshot 1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="private-projects" class="fade-in">
+        <div class="container">
+            <div class="content-left">
+                <h2>Private Projects</h2>
+                <p>In addition to my public projects, I have contributed to numerous private projects for businesses and organizations. These projects involved developing custom web solutions, optimizing server performance, and ensuring robust security measures. My role included collaborating closely with clients to deliver tailored software solutions that meet their unique needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in" style="display: none;">
+        <div class="container">
+            <div class="content-left">
+                <h2>Contact</h2>
+                <form action="mailto:ypnihul@gmail.com" method="post" enctype="text/plain">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name"><br>
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email"><br>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
+                    <input type="submit" value="Send">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Yaniv George Perez</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const faders = document.querySelectorAll('.fade-in');
+            const sliders = document.querySelectorAll('.slide-in');
+
+            const appearOptions = {
+                threshold: 0,
+                rootMargin: "0px 0px -100px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('appear');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+
+            sliders.forEach(slider => {
+                appearOnScroll.observe(slider);
+            });
+        });
+    </script>
+</body>
+</html>
